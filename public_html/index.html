@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Fizzbuzz implemented in JavaScript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <script>
+        function getStartNumber() {
+            return document.getElementById("startNumber").value;
+        }
+
+        function getEndNumber() {
+            return document.getElementById("endNumber").value;
+        }
+
+        function calculate() {
+            for (var i = getStartNumber(); i <= getEndNumber(); i++) {
+                document.getElementById("output").value += calculateFizzBuzzForNumber(i);
+            }
+        }
+
+        function calculateFizzBuzzForNumber(i) {
+            var text = i;
+            text += " : ";
+            var status = "";
+
+            if (Number(i) % 3 == 0) {
+                status = "fizz";
+            }
+            if (Number(i) % 5 == 0) {
+                status += "buzz";
+            }
+            if (status == "") {
+                status = i;
+            }
+            text += status + "\n";
+
+            return text;
+        }
+    </script>
+
+    <body>
+        <h1>Fizzbuzz</h1>
+        <p>An implementation of FizzBuzz using AngularJS.<br/>
+            Please enter start and end range values.<br/>
+            The start and end numbers must be valid positive integers and the 
+            end number must be greater than the start number.</p>
+        <p>Enter start number : <input id="startNumber" type="text"></p>
+        <p>  Enter end number : <input id="endNumber" type="text"></p>
+        <input id="Calculate" type="button" value="calculate" onclick="calculate();" />
+        <h2>Calculation of FizzBuzz for the range
+            <script type="text/javascript">
+            document.write(getStartNumber())
+            </script>
+            to
+            <script type="text/javascript">
+                document.write(getEndNumber())
+            </script>...</h2>
+        <textarea id="output" rows="8" columns="250" disabled="disabled" ></textarea>
+    </body>
+</html>
